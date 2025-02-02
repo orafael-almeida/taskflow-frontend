@@ -57,7 +57,7 @@ const Header = () => {
               <span className="text-xl font-bold">TaskFlow</span>
             </Link>
           </div>
-          <nav className="flex items-center  space-x-4  md:space-x-8 lg:space-x-10 text-lg">
+          <nav className=" flex items-center  space-x-4  md:space-x-8 lg:space-x-10 text-lg">
             {routes.map((route) => (
               <Link
                 key={route.label}
