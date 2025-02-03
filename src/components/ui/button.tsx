@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
-import { CirclePlus } from "lucide-react";
+import { CirclePlus, CircleX } from "lucide-react";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -54,14 +54,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-const AddNotesButton = () => {
+interface AddNotesButtonProps {
+  onClick: () => void;
+  state: boolean;
+}
+
+const AddNotesButton: React.FC<AddNotesButtonProps> = ({ onClick, state }) => {
   return (
     <Button
       variant="outline"
-      className="border-4 border-dashed bg-transparent flex-grow py-6 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-md"
+      className="border-4 border-dashed bg-transparent flex-grow py-6 max-h-max transition-all duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-md"
+      onClick={onClick}
     >
-      <CirclePlus />
-      Add New
+      {state ? (
+        <>
+          <CircleX />
+          Cancel
+        </>
+      ) : (
+        <>
+          <CirclePlus />
+          Add New
+        </>
+      )}
     </Button>
   );
 };
