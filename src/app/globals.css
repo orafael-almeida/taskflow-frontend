@@ -26,30 +26,81 @@ body {
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 220 50% 75%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: 220 15% 12%; /* fundo escuro */
+    --foreground: 220 13% 87%; /* texto claro */
+    --card: 220 13% 14%; /* fundo do card escuro */
+    --card-foreground: 220 13% 87%; /* texto do card claro */
+    --popover: 220 13% 14%; /* fundo do popover escuro */
+    --popover-foreground: 220 13% 87%; /* texto do popover claro */
+    --primary: 221 80% 50%; /* cor primária mais vibrante */
+    --primary-foreground: 210 60% 90%; /* texto claro em primário */
+    --secondary: 210 20% 40%; /* cor secundária mais escura */
+    --secondary-foreground: 222 60% 90%; /* texto claro em secundário */
+    --muted: 210 25% 30%; /* cor de fundo mais apagada */
+    --muted-foreground: 215 10% 50%; /* texto em cor suave */
+    --accent: 210 40% 70%; /* cor de destaque */
+    --accent-foreground: 222 80% 20%; /* texto escuro em destaque */
+    --destructive: 0 80% 60%; /* cor para ações destrutivas (vermelho) */
+    --destructive-foreground: 210 60% 90%; /* texto claro em destrutivo */
+    --border: 214 50% 20%; /* cor de borda sutil */
+    --input: 214 50% 30%; /* fundo de input */
+    --ring: 220 80% 60%; /* cor de destaque para anéis de foco */
+    --radius: 0.5rem; /* borda arredondada */
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  button,
+  .card,
+  .popover {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+  }
+
+  input,
+  .input-field {
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+  }
+
+  button.primary {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  button.secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+  }
+
+  button.accent {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  button.destructive {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  .card,
+  .popover {
+    border-radius: var(--radius);
+  }
+
+  input:focus,
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--ring));
   }
 }
 *::-webkit-scrollbar {
